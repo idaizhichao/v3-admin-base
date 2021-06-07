@@ -1,0 +1,35 @@
+.content-wrapper {
+  background-color: #F2F3F5;
+  height: calc(100vh - 49px);
+}
+::v-deep('.el-submenu .el-menu-item') {
+  min-width: 0;
+}
+.right-menu {
+  width: 100%;
+  height: calc(100vh - 49px);
+  .el-menu-item-group__title {
+  }
+}
+
+.nav-box {
+  height: 48px;
+  line-height: 48px;
+}
+.nav-right {
+  text-align: end;
+}
+.fold-class-wrapper {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  cursor: pointer;
+  padding-left: 1px;
+}
+.fold-class {
+  font-size: 30px;
+  color: #595959;
+}
+::v-deep(.el-tabs__header)  {
+  margin: 0;
+}
