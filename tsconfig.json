@@ -8,16 +8,16 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"]
-  },
-  "baseUrl": ".",
-  "paths": {
-    "@/*": ["src/*"],
-    "@api/": ["src/api/*"],
-    "@/store": ["src/store/*"],
-    "@/route": ["src/route/*"],
-    "@util/": ["src/util/*"],
-    "components/": ["src/components/*"]
+    "lib": ["esnext", "dom"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@api/": ["src/api/*"],
+      "@store/": ["src/store/*"],
+      "@route/": ["src/route/*"],
+      "@util/": ["src/util/*"],
+      "@components/": ["src/components/*"]
+    },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": [
