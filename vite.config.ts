@@ -3,18 +3,22 @@ import styleImport from 'vite-plugin-style-import'
 import { resolve } from "path";
 import vue from '@vitejs/plugin-vue'
 
+function pathResolve(dir: string) {
+  return resolve(process.cwd(), '.', dir);
+}
+
 export default defineConfig({
   server: {
     proxy: {
       '/api': {
         target: 'http://192.168.10.39',
         ws: true,
-        rewrite: (path) => path.replace(/^\/api/, '/')
+        rewrite: (path: any) => path.replace(/^\/api/, '/')
       }
     }
   },
   plugins: [
-    vue(), 
+    vue(),
     styleImport({
       libs:[{
         libraryName: 'element-plus',
@@ -31,12 +35,19 @@ export default defineConfig({
     })
   ],
   resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-      '@util': resolve(__dirname, 'src/util'),
-      '@api': resolve(__dirname, 'src/api'),
-      '@component': resolve(__dirname, 'src/component'),
-      '@route': resolve(__dirname, 'src/route')
-    }
+    alias: [
+      {
+        find: /@\//,
+        replacement: pathResolve('src') + '/',
+      },
+      {
+        find: /\/@\//,
+        replacement: pathResolve('src') + '/',
+      },
+      {
+        find: /\/#\//,
+        replacement: pathResolve('types') + '/',
+      },
+    ]
   }
 })
